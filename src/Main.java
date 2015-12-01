@@ -19,11 +19,6 @@ public class Main {
         Observador o = new Observador(0,0);
         Seleccion a = new Seleccion (carga,o);
         o.addObserver(a);
-//    	carga.printHeader();
-//    	System.out.println("asd");
-//        carga.printData();
-//    	System.out.println("asd");
-//        Seleccion ventana = new Seleccion();
         
         JFrame frame = new JFrame("Informacion Meteorologica");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -31,8 +26,5 @@ public class Main {
         
         frame.setSize(250, 350);
         frame.setVisible(true);
-////        carga.calcularAno();
-//        System.out.println(carga.buscarAno(2015));
-//        System.out.println(carga.data.size());   
     }
 }

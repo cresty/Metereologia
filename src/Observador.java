@@ -13,7 +13,7 @@ import java.util.Observable;
 public class Observador extends Observable{
     
     public int obsAno;
-    public int obsCat=1;
+    public int obsCat;
     
     public Observador( int ano, int cat)
     {

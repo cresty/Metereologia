@@ -18,7 +18,6 @@ public class Carga{
                     dump = s.next();
                 while (!s.hasNextFloat())
                     header.add(s.next());
-                //printHeader();
                 while (s.hasNext())
                 {
                     list.clear();
@@ -35,7 +34,6 @@ public class Carga{
                             dump = s.next();
                             float n=0;
                             float aux=(float) pow(10, dump.length()-4);
-                            //System.out.println(aux);
                             for (int k = 0; k < dump.length(); k++)
                             {
                                 char caracter = dump.charAt(k);
@@ -81,9 +79,7 @@ public class Carga{
         {
             for (int i = 0;i<data.size();i++)
                 if (a == data.get(i).getAno())
-                {
                     return i;
-                }
             return 0;
         }
         private static boolean isNumeric(char caracter)
