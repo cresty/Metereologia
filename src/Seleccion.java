@@ -35,14 +35,12 @@ public class Seleccion extends JPanel implements Observer{
 
     int counter = 15;
     int c = 0;
-    Observador o = null;
     Carga a = null;
   
     public Seleccion(final Carga a) {
         setLayout(new BorderLayout());
         model = new DefaultListModel();
         model1 = new DefaultListModel();
-    //    model2 = new DefaultFrameModel();
 
         this.a = a;
         list = new JList(model);
@@ -50,9 +48,6 @@ public class Seleccion extends JPanel implements Observer{
         JScrollPane ano = new JScrollPane(list);
         JScrollPane mes = new JScrollPane(list2);
 
-    
-//    JButton pieButton = new JButton("Mostrar Pie Chart");
-//    JButton lineButton = new JButton("Mostrar Line Chart");
         for (int i = 0; i <= a.calcularAno(); i++)
             model.addElement((int)(a.data.get(0).getAno()+i));
         for (int i = 2; i<a.header.size()-5;i++)
@@ -72,7 +67,6 @@ public class Seleccion extends JPanel implements Observer{
                 ano2 = (float)ano1;
                 int select = list2.getSelectedIndex()+2;
                 ano1 = a.buscarAno(ano2);
-//                DefaultPieDataset data = new DefaultPieDataset();
                 for (int i=ano1;i<ano1+12;i++)
                     if  (i < a.data.size())
                         if ((a.data.get(i).data.get(0) == ano2) )
@@ -81,15 +75,6 @@ public class Seleccion extends JPanel implements Observer{
                             c++;
                         }
                 dato = dato/c;
-                            //data.setValue(a.data.get(i).getMes(), (a.data.get(i).data.get(select)));
-//                JFreeChart chart = ChartFactory.createPieChart(a.header.get(select),data,true,true,false);
-//                //ChartFrame frame = new ChartFrame("Grafico de Sectores", chart);
-//                ChartPanel cp = new ChartPanel(chart);
-//                cp.setPreferredSize(new Dimension(300, 300)); //size according to my window
-//                cp.setMouseWheelEnabled(true);
-//                add(cp);
-//                revalidate();
-//                t = true;
                 
 			DefaultValueDataset dataset = new DefaultValueDataset(dato);
 			JFreeChart jfreechart = createStandardDialChart(a.header.get(select), "Value", dataset, a.getMin(select), a.getMax(select), (a.getMax(select)-a.getMin(select))/10, 4);
@@ -126,13 +111,6 @@ public class Seleccion extends JPanel implements Observer{
     list2.addListSelectionListener(listenList1);
     add(ano, BorderLayout.NORTH);
     add(mes, BorderLayout.SOUTH);
-//    add(tmax, BorderLayout.CENTER);
-//    add(tmin, BorderLayout.CENTER);
-//    add(af, BorderLayout.CENTER);
-//    add(rain, BorderLayout.CENTER);
-//    add(sun, BorderLayout.CENTER);
-    
-    
   }
 
     @Override
