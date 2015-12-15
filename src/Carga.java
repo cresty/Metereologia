@@ -90,4 +90,28 @@ public class Carga{
             return false;
             }
         }
+        
+        public float getMin(int i)
+        {
+            float min = 99999;
+            for (int j=0;j<data.size();j++)
+            {
+                if (data.get(j).data.get(i) < min)
+                    min = data.get(j).data.get(i);
+            }
+            System.out.println("El menor numero es: "+min);
+            return min;
+        }
+        
+        public float getMax(int i)
+        {
+            float max = 0;
+            for (int j=0;j<data.size();j++)
+            {
+                if (data.get(j).data.get(i) > max)
+                    max = data.get(j).data.get(i);
+            }
+            System.out.println("El mayor numero es: "+max);
+            return max;
+        }
 }
