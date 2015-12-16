@@ -3,7 +3,6 @@
  * and open the template in the editor.
  */
 import java.awt.*;
-import java.awt.event.*;
 import java.util.Observable;
 import java.util.Observer;
 import javax.swing.*;
@@ -11,8 +10,6 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import org.jfree.chart.*;
 import org.jfree.chart.plot.dial.*;
-import org.jfree.data.category.DefaultCategoryDataset;
-import org.jfree.data.general.DefaultPieDataset;
 import org.jfree.data.general.DefaultValueDataset;
 import org.jfree.data.general.ValueDataset;
 import org.jfree.ui.GradientPaintTransformType;
@@ -76,33 +73,33 @@ public class Seleccion extends JPanel implements Observer{
                         }
                 dato = dato/c;
                 
-			DefaultValueDataset dataset = new DefaultValueDataset(dato);
-			JFreeChart jfreechart = createStandardDialChart(a.header.get(select), "Value", dataset, a.getMin(select), a.getMax(select), (a.getMax(select)-a.getMin(select))/10, 4);
-			DialPlot dialplot = (DialPlot)jfreechart.getPlot();
-			StandardDialRange standarddialrange = new StandardDialRange(((a.getMax(select)-a.getMin(select))*(2/3))+a.getMin(select), a.getMax(select), Color.red);
-			standarddialrange.setInnerRadius(0.52000000000000002D);
-			standarddialrange.setOuterRadius(0.55000000000000004D);
-			dialplot.addLayer(standarddialrange);
-			StandardDialRange standarddialrange1 = new StandardDialRange(((a.getMax(select)-a.getMin(select))*(1/3))+a.getMin(select), ((a.getMax(select)-a.getMin(select))*(2/3))+a.getMin(select), Color.orange);
-			standarddialrange1.setInnerRadius(0.52000000000000002D);
-			standarddialrange1.setOuterRadius(0.55000000000000004D);
-			dialplot.addLayer(standarddialrange1);
-			StandardDialRange standarddialrange2 = new StandardDialRange(a.getMin(select), ((a.getMax(select)-a.getMin(select))*(1/3))+a.getMin(select), Color.green);
-			standarddialrange2.setInnerRadius(0.52000000000000002D);
-			standarddialrange2.setOuterRadius(0.55000000000000004D);
-			dialplot.addLayer(standarddialrange2);
-			GradientPaint gradientpaint = new GradientPaint(new Point(), new Color(255, 255, 255), new Point(), new Color(170, 170, 220));
-			DialBackground dialbackground = new DialBackground(gradientpaint);
-			dialbackground.setGradientPaintTransformer(new StandardGradientPaintTransformer(GradientPaintTransformType.VERTICAL));
-			dialplot.setBackground(dialbackground);
-			dialplot.removePointer(0);
-			org.jfree.chart.plot.dial.DialPointer.Pointer pointer = new org.jfree.chart.plot.dial.DialPointer.Pointer();
-			pointer.setFillPaint(Color.yellow);
-			dialplot.addPointer(pointer);
-			ChartPanel cp = new ChartPanel(jfreechart);
-                        cp.setMouseWheelEnabled(true);
-                        add(cp);
-                        revalidate();
+                DefaultValueDataset dataset = new DefaultValueDataset(dato);
+                JFreeChart jfreechart = createStandardDialChart(a.header.get(select), "Value", dataset, a.getMin(select), a.getMax(select), (a.getMax(select)-a.getMin(select))/10, 4);
+                DialPlot dialplot = (DialPlot)jfreechart.getPlot();
+                StandardDialRange standarddialrange = new StandardDialRange(((a.getMax(select)-a.getMin(select))*(2/3))+a.getMin(select), a.getMax(select), Color.red);
+                standarddialrange.setInnerRadius(0.52000000000000002D);
+                standarddialrange.setOuterRadius(0.55000000000000004D);
+                dialplot.addLayer(standarddialrange);
+                StandardDialRange standarddialrange1 = new StandardDialRange(((a.getMax(select)-a.getMin(select))*(1/3))+a.getMin(select), ((a.getMax(select)-a.getMin(select))*(2/3))+a.getMin(select), Color.orange);
+                standarddialrange1.setInnerRadius(0.52000000000000002D);
+                standarddialrange1.setOuterRadius(0.55000000000000004D);
+                dialplot.addLayer(standarddialrange1);
+                StandardDialRange standarddialrange2 = new StandardDialRange(a.getMin(select), ((a.getMax(select)-a.getMin(select))*(1/3))+a.getMin(select), Color.green);
+                standarddialrange2.setInnerRadius(0.52000000000000002D);
+                standarddialrange2.setOuterRadius(0.55000000000000004D);
+                dialplot.addLayer(standarddialrange2);
+                GradientPaint gradientpaint = new GradientPaint(new Point(), new Color(255, 255, 255), new Point(), new Color(170, 170, 220));
+                DialBackground dialbackground = new DialBackground(gradientpaint);
+                dialbackground.setGradientPaintTransformer(new StandardGradientPaintTransformer(GradientPaintTransformType.VERTICAL));
+                dialplot.setBackground(dialbackground);
+                dialplot.removePointer(0);
+                org.jfree.chart.plot.dial.DialPointer.Pointer pointer = new org.jfree.chart.plot.dial.DialPointer.Pointer();
+                pointer.setFillPaint(Color.yellow);
+                dialplot.addPointer(pointer);
+                ChartPanel cp = new ChartPanel(jfreechart);
+                cp.setMouseWheelEnabled(true);
+                add(cp);
+                revalidate();
             }
       };
     };

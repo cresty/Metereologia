@@ -99,7 +99,6 @@ public class Carga{
                 if (data.get(j).data.get(i) < min)
                     min = data.get(j).data.get(i);
             }
-            System.out.println("El menor numero es: "+min);
             return min;
         }
         
@@ -111,7 +110,6 @@ public class Carga{
                 if (data.get(j).data.get(i) > max)
                     max = data.get(j).data.get(i);
             }
-            System.out.println("El mayor numero es: "+max);
             return max;
         }
 }

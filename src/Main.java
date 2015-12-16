@@ -16,13 +16,13 @@ public class Main {
         
         
         String url = "http://www.metoffice.gov.uk/pub/data/weather/uk/climate/stationdata/leucharsdata.txt";
-        String archivo = "C:\\Users\\cresty\\Documents\\archivo.txt";
+        String archivo = "C:\\Users\\Apuestas\\Documents\\archivo.txt";
         Extraccion ext = new Extraccion(url,archivo);
         Carga carga = new Carga(archivo);
         Seleccion a = new Seleccion (carga);
         
         JFrame frame = new JFrame("Informacion Meteorologica");
-        frame.setSize(new Dimension(1500, 1000));
+        frame.setSize(new Dimension(600, 800));
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setContentPane(a);
         frame.setVisible(true);
